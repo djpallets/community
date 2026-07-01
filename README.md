@@ -1,5 +1,8 @@
 <div align="center">
 
+  <img width="100" height="100" alt="18132" src="https://github.com/user-attachments/assets/41fb641c-4ef4-465e-9335-c3ec83c05956" />
+
+
   # Pallets Community Edition
   _Django Admin, Made Better_
 </div>
