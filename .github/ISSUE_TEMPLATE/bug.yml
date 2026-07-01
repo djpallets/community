@@ -1,0 +1,78 @@
+name: Bug report
+description: Segnala un problema in Pallets
+title: "[BUG] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Grazie per aver segnalato un problema in **Pallets**! 🐛  
+        Compila questo modulo per aiutarci a capire e risolvere il bug.
+
+  - type: input
+    id: django_version
+    attributes:
+      label: Versione di Django
+      placeholder: "es. 5.0.6"
+    validations:
+      required: true
+
+  - type: input
+    id: python_version
+    attributes:
+      label: Versione di Python
+      placeholder: "es. 3.12"
+    validations:
+      required: true
+
+  - type: textarea
+    id: what_happened
+    attributes:
+      label: Cosa è successo?
+      description: Descrivi il problema nel modo più chiaro possibile
+      placeholder: "Spiega cosa stava succedendo..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Passaggi per riprodurre il problema
+      description: Elenca i passaggi per far comparire il bug
+      placeholder: |
+        1. Vai su ...
+        2. Clicca su ...
+        3. Vedi l'errore
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Comportamento previsto
+      description: Cosa ti aspettavi che succedesse?
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Comportamento attuale
+      description: Cosa succede realmente?
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Log / Errori
+      description: Incolla eventuali errori dal terminale o dal browser
+      render: shell
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: Informazioni aggiuntive
+      description: Screenshot, contesto, configurazioni particolari, ecc.
+    validations:
+      required: false
