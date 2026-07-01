@@ -42,13 +42,13 @@ git clone https://github.com/djpallets/community.git pallets
 cd pallets
 ```
 
-3. Crea un ambiente virtuale.
+2. Crea un ambiente virtuale.
 
 ```bash
 python -m venv .venv
 ```
 
-4. Attivalo.
+3. Attivalo.
 
 ### Linux/macOS
 
@@ -62,7 +62,7 @@ source .venv/bin/activate
 .venv\Scripts\activate
 ```
 
-5. Installa Django e crea un progetto con il database.
+4. Installa Django e crea un progetto con il database.
 
 ```bash
 pip install django
@@ -70,9 +70,9 @@ django-admin startproject pallets_project .
 python manage.py migrate
 ```
 
-6. Configura le app e gli URL come indicato nel README.
-
-7. Esegui i test e avvia il server di sviluppo per verificare le modifiche.
+5. Configura le app e gli URL come indicato nel README.
+  
+6. Esegui i test e avvia il server di sviluppo per verificare le modifiche.
 
 ```bash
 python manage.py test
