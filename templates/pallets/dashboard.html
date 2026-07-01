@@ -1,0 +1,19 @@
+{% extends 'pallets/base.html' %}
+
+{% block page_title %}Pallets Dashboard{% endblock %}
+{% block page_heading %}Pallets Dashboard{% endblock %}
+{% block page_subtitle %}Discover every database model and manage it directly.{% endblock %}
+
+{% block content %}
+<div class="cards">
+    {% for model in models %}
+        <a class="card" href="{% url 'pallets:model_list' model.app_label model.model_name %}">
+            <div class="card-title">{{ model.verbose_name }}</div>
+            <div class="card-count">{{ model.count }}</div>
+            <div class="card-meta">{{ model.app_label }}</div>
+        </a>
+    {% empty %}
+        <div class="panel">No database models are available yet.</div>
+    {% endfor %}
+</div>
+{% endblock %}

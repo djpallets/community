@@ -1,4 +1,3 @@
-import django.admin
+from django.contrib import admin
 
-# Pallets non deve registrare modelli nel database.
-# Poi sarebbe inutile perché punta all'admin site di Django, non di pallets.
+# Register your models here.

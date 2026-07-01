@@ -1,0 +1,39 @@
+{% extends 'pallets/base.html' %}
+
+{% block page_title %}{{ model_name|capfirst }}{% endblock %}
+{% block page_heading %}{{ model_name|capfirst }}{% endblock %}
+{% block page_subtitle %}Manage {{ model_name }} records.{% endblock %}
+
+{% block content %}
+<div class="page-actions">
+    <h2 style="margin: 0;">{{ verbose_name }}</h2>
+    <a class="button" href="{% url 'pallets:model_create' app_label model_name %}">Create</a>
+</div>
+<div class="table-card">
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                {% for field in display_fields %}<th>{{ field }}</th>{% endfor %}
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for obj in objects %}
+                <tr>
+                    <td>{{ obj.pk }}</td>
+                    {% for value in obj.display_values %}<td>{{ value }}</td>{% endfor %}
+                    <td>
+                        <div class="actions">
+                            <a class="button secondary" href="{% url 'pallets:model_edit' app_label model_name obj.pk %}">Edit</a>
+                            <a class="button danger" href="{% url 'pallets:model_delete' app_label model_name obj.pk %}">Delete</a>
+                        </div>
+                    </td>
+                </tr>
+            {% empty %}
+                <tr><td colspan="100">No records yet.</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

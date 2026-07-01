@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block page_title %}Pallets{% endblock %}</title>
+    <style>
+        :root {
+            color-scheme: dark;
+            --bg: #07111f;
+            --panel: #0f1c2e;
+            --panel-2: #15253d;
+            --text: #f5f7ff;
+            --muted: #95a6c8;
+            --accent: #4f8cff;
+            --accent-2: #7c5cff;
+            --danger: #ff5d7a;
+            --border: rgba(255,255,255,0.08);
+        }
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+            background: linear-gradient(135deg, var(--bg), #0d1630 60%, #111d36);
+            color: var(--text);
+        }
+        a { color: inherit; text-decoration: none; }
+        .app-shell { display: flex; min-height: 100vh; }
+        .sidebar {
+            width: 280px;
+            padding: 28px 20px;
+            background: rgba(5, 10, 20, 0.72);
+            border-right: 1px solid var(--border);
+            backdrop-filter: blur(20px);
+        }
+        .brand { font-size: 1.7rem; font-weight: 800; margin-bottom: 8px; }
+        .brand small { display: block; color: var(--muted); font-size: 0.9rem; margin-top: 6px; }
+        .sidebar nav { display: flex; flex-direction: column; gap: 8px; margin-top: 26px; }
+        .sidebar a {
+            padding: 10px 12px;
+            border-radius: 12px;
+            color: var(--muted);
+            transition: all 0.2s ease;
+        }
+        .sidebar a:hover, .sidebar a.active { background: rgba(79,140,255,0.16); color: var(--text); }
+        .content { flex: 1; display: flex; flex-direction: column; padding: 24px; gap: 18px; }
+        .topbar, .card, .table-card, .form-card, .panel { background: rgba(15, 28, 46, 0.9); border: 1px solid var(--border); border-radius: 20px; box-shadow: 0 18px 45px rgba(0,0,0,0.22); }
+        .topbar { display: flex; justify-content: space-between; align-items: center; padding: 20px 24px; }
+        .topbar h1 { margin: 0; font-size: 1.4rem; }
+        .topbar p { margin: 4px 0 0; color: var(--muted); }
+        .user-pill { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; color: var(--muted); }
+        .button {
+            display: inline-flex; align-items: center; justify-content: center;
+            padding: 10px 14px; border-radius: 999px; background: linear-gradient(135deg, var(--accent), var(--accent-2));
+            color: white; border: none; cursor: pointer; font-weight: 600;
+        }
+        .button.secondary { background: transparent; border: 1px solid var(--border); color: var(--text); }
+        .button.danger { background: linear-gradient(135deg, var(--danger), #ff7d5b); }
+        .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+        .card { padding: 20px; display: block; transition: transform .2s ease; }
+        .card:hover { transform: translateY(-2px); }
+        .card-title { font-weight: 700; margin-bottom: 24px; font-size: 1.05rem; }
+        .card-count { font-size: 2rem; font-weight: 800; margin-bottom: 6px; }
+        .card-meta { color: var(--muted); font-size: 0.9rem; }
+        .table-card, .form-card, .panel { padding: 20px; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { text-align: left; padding: 12px 10px; border-bottom: 1px solid var(--border); }
+        th { color: var(--muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; }
+        .actions { display: flex; gap: 8px; flex-wrap: wrap; }
+        .page-actions { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+        .messages { display: flex; flex-direction: column; gap: 10px; }
+        .message { padding: 12px 14px; border-radius: 12px; background: rgba(79,140,255,0.16); border: 1px solid rgba(79,140,255,0.25); }
+        .field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+        label { font-weight: 600; }
+        input, select, textarea {
+            width: 100%; padding: 10px 12px; border-radius: 12px; border: 1px solid var(--border);
+            background: var(--panel-2); color: var(--text);
+        }
+        .helptext { color: var(--muted); font-size: 0.85rem; }
+        .errors { color: #ff9aba; font-size: 0.9rem; }
+        footer { margin-top: auto; color: var(--muted); font-size: 0.9rem; padding-top: 8px; }
+        @media (max-width: 820px) {
+            .app-shell { flex-direction: column; }
+            .sidebar { width: 100%; border-right: none; border-bottom: 1px solid var(--border); }
+            .content { padding: 16px; }
+            .topbar { flex-direction: column; align-items: flex-start; gap: 12px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="app-shell">
+        <aside class="sidebar">
+            <div class="brand">Pallets<small>Pallets Community Edition</small></div>
+            <nav>
+                <a href="{% url 'pallets:dashboard' %}" class="{% if request.path == '/pallets/' %}active{% endif %}">Dashboard</a>
+            </nav>
+        </aside>
+        <main class="content">
+            <header class="topbar">
+                <div>
+                    <h1>{% block page_heading %}Pallets{% endblock %}</h1>
+                    <p>{% block page_subtitle %}A modern database administration experience.{% endblock %}</p>
+                </div>
+                <div class="user-pill">
+                    <span>{{ request.user.username|default:'Guest' }}</span>
+                    {% if request.user.is_authenticated %}
+                        <a href="{% url 'logout' %}">Logout</a>
+                    {% endif %}
+                </div>
+            </header>
+
+            {% if messages %}
+                <div class="messages">
+                    {% for message in messages %}
+                        <div class="message">{{ message }}</div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            {% block content %}{% endblock %}
+            <footer>© 2026 Pallets Community Edition</footer>
+        </main>
+    </div>
+</body>
+</html>

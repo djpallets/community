@@ -1,0 +1,26 @@
+{% extends 'pallets/base.html' %}
+
+{% block page_title %}Access Pallets{% endblock %}
+{% block page_heading %}Access Pallets{% endblock %}
+{% block page_subtitle %}Sign in with a staff or superuser account.{% endblock %}
+
+{% block content %}
+<div class="panel" style="max-width: 480px; margin: 0 auto;">
+    <h2 style="margin-top: 0;">Welcome back</h2>
+    <form method="post" class="field" style="margin-top: 20px;">
+        {% csrf_token %}
+        {% if form.non_field_errors %}
+            <div class="errors">{{ form.non_field_errors }}</div>
+        {% endif %}
+        <div class="field">
+            <label for="id_username">Username</label>
+            {{ form.username }}
+        </div>
+        <div class="field">
+            <label for="id_password">Password</label>
+            {{ form.password }}
+        </div>
+        <button type="submit" class="button">Sign in</button>
+    </form>
+</div>
+{% endblock %}
