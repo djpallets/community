@@ -1,0 +1,14 @@
+# Normalizza line endings
+* text=auto
+
+# Python e HTML
+*.py text eol=lf
+*.html text eol=lf
+
+# YAML e config
+*.yml text eol=lf
+*.yaml text eol=lf
+
+# Evita che certi file entrino negli export ZIP (git archive / GitHub download)
+README.md export-ignore
+.github/ export-ignore
