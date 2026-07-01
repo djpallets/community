@@ -1,0 +1,54 @@
+name: Feature request
+description: Suggerisci una nuova funzionalità per Pallets
+title: "[FEATURE] "
+labels: ["enhancement"]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        💡 Grazie per aver proposto una nuova funzionalità per **Pallets**!
+        Descrivi la tua idea nel modo più chiaro possibile.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problema
+      description: Quale problema vorresti risolvere?
+      placeholder: "Es. È difficile gestire..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Soluzione proposta
+      description: Come dovrebbe funzionare la funzionalità?
+      placeholder: "Potremmo aggiungere..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternative considerate
+      description: Hai pensato ad altre soluzioni?
+    validations:
+      required: false
+
+  - type: textarea
+    id: use_case
+    attributes:
+      label: Caso d’uso
+      description: In quali situazioni sarebbe utile?
+      placeholder: "Quando un utente..."
+    validations:
+      required: false
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: Informazioni aggiuntive
+      description: Mockup, idee, screenshot o contesto extra
+    validations:
+      required: false
