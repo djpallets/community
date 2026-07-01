@@ -52,6 +52,23 @@ urlpatterns = [
 
 ---
 
+## Contribuire
+
+Se vuoi contribuire, leggi il file:
+
+👉 `CONTRIBUTING.md`
+
+---
+
+## Obiettivo del progetto
+
+Pallets vuole diventare un admin panel:
+
+- più moderno di default
+- più facile da estendere
+- più piacevole da usare
+- 
+
 ## Note importanti
 
 - Django è un marchio registrato di Django Software Foundation.
