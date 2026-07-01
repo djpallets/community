@@ -35,8 +35,7 @@ Quando proponi una funzionalità, cerca di spiegare:
 
 ## Configurazione dell'ambiente di sviluppo
 
-1. Fai un fork del repository.
-2. Clona il tuo fork.
+1. Clona il codice sorgente
 
 ```bash
 git clone https://github.com/djpallets/community.git pallets
