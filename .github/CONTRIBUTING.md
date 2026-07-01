@@ -39,7 +39,7 @@ Quando proponi una funzionalità, cerca di spiegare:
 2. Clona il tuo fork.
 
 ```bash
-git clone https://github.com/<tuo-username>/pallets.git
+git clone https://github.com/djpallets/community.git pallets
 cd pallets
 ```
 
