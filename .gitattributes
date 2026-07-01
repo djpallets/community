@@ -12,3 +12,5 @@
 # Evita che certi file entrino negli export ZIP (git archive / GitHub download)
 README.md export-ignore
 .github/ export-ignore
+.gitattributes export-ignore
+.editorconfig export-ignore
