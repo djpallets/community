@@ -67,7 +67,8 @@ Pallets vuole diventare un admin panel:
 - più moderno di default
 - più facile da estendere
 - più piacevole da usare
-- 
+
+---
 
 ## Note importanti
 
