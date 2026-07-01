@@ -1,0 +1,71 @@
+name: Crash report
+description: Segnala un crash o errore critico in Pallets
+title: "[CRASH] "
+labels: ["crash"]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        🚨 Grazie per aver segnalato un crash in **Pallets**.  
+        Compila tutte le informazioni possibili per aiutarci a risolvere il problema.
+
+  - type: input
+    id: django_version
+    attributes:
+      label: Versione di Django
+      placeholder: "es. 5.0.6"
+    validations:
+      required: true
+
+  - type: input
+    id: python_version
+    attributes:
+      label: Versione di Python
+      placeholder: "es. 3.12"
+    validations:
+      required: true
+
+  - type: textarea
+    id: what_happened
+    attributes:
+      label: Cosa stavi facendo quando è avvenuto il crash?
+      placeholder: "Esempio: stavo aprendo il pannello admin..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: error
+    attributes:
+      label: Errore / Traceback
+      description: Incolla qui l'errore completo dal terminale o log del server
+      render: shell
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Come riprodurlo
+      description: Passaggi per far avvenire il crash
+      placeholder: |
+        1. Avvia il server
+        2. Vai su ...
+        3. Il sistema crasha
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Comportamento previsto
+    validations:
+      required: true
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: Informazioni aggiuntive
+      description: Screenshot, configurazioni, contesto, ecc.
+    validations:
+      required: false
