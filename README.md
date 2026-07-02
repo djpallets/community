@@ -49,7 +49,7 @@ urlpatterns = [
     # Pallets
     path('pallets/', include('pallets.urls')),
     path('accounts/logout/', LogoutView.as_view(), name='logout'),
-    path('accouts/login/', custom_login.as_view(), name='login')
+    path('acconuts/login/', custom_login, name='login'),
 
     # Poi le tue
 ]
