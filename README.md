@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 from django.contrib import admin
 from django.urls import include, path
 from django.contrib.auth.views import LogoutView
+from pallets.views import custom_login
 
 urlpatterns = [
     # Admin predefinito (Puoi toglierlo sostituendolo con pallets)
@@ -48,6 +49,7 @@ urlpatterns = [
     # Pallets
     path('pallets/', include('pallets.urls')),
     path('accounts/logout/', LogoutView.as_view(), name='logout'),
+    path('accouts/login/', custom_login.as_view(), name='login')
 
     # Poi le tue
 ]
