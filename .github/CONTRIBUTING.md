@@ -75,7 +75,7 @@ python manage.py migrate
 6. Esegui i test e avvia il server di sviluppo per verificare le modifiche.
 
 ```bash
-python manage.py test
+python manage.py test pallets
 python manage.py runserver
 ```
 
